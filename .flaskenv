@@ -1,0 +1,3 @@
+FLASK_APP=brazilian_trees_api.py
+FLASK_ENV=development
+FLASK_RUN_EXTRA_FILES=*.py

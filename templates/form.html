@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-center">
+    <form class="w-25 m-5 pb-3">
+        <div class="mb-5">
+            <h1 class="display-6">Cadastrar árvore</h1>
+            <!--ajustar para permitir edição-->
+        </div>
+        <div class="mb-3">
+            <label for="formInput1" class="form-label">Nome Científico</label>
+            <input type="text" class="form-control" id="formInput1">
+        </div>
+        <div class="mb-3">
+            <label for="formInput2" class="form-label">Família</label>
+            <input type="text" class="form-control" id="formInput2">
+        </div>
+        <div class="mb-3">
+            <label for="formInput3" class="form-label">Classe</label>
+            <input type="text" class="form-control" id="formInput3">
+        </div>
+        <div class="mb-3">
+            <label for="formInput4" class="form-label">Altura Máxima</label>
+            <input type="number" min="0" class="form-control" id="formInput4">
+        </div>
+        <div class="mb-3">
+            <label for="formInput5" class="form-label">Nome Popular</label>
+            <input type="text" class="form-control" id="formInput5">
+        </div>
+        <div class="d-flex justify-content-md-evenly p-2">
+            <a class="btn btn-success" type="submit" href="javascript:history.back()">Voltar</a>
+            <a class="btn btn-success" type="submit" href="#">Salvar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

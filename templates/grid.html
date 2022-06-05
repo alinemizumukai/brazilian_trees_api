@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container p-3">
+    <form class="row g-3 p-2" action="" method="PUT">
+        <div class="col-auto">            
+            <input type="text" class="form-control" name="data">
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-success" type="submit">Buscar</button>
+        </div>
+    </form>
+    <hr class="bd-success mt-3 mb-4">
+    {% if exibir %}
+    <div class="grid">
+        <div class="row p-2 bg-success text-white fw-semibold">
+            <div class="col-1">Cód.</div>
+            <div class="col-2">Nome Científico</div>
+            <div class="col-2">Família</div>
+            <div class="col-2">Classe</div>            
+            <div class="col-2">Altura Máxima</div>
+            <div class="col-2">Nome Popular</div>
+            <div class="col-1"></div>
+        </div>
+        {% for i in result.data[0] %}
+        <div class="row p-2 border-bottom border-success border-opacity-50">
+            <div class="col-1">
+                {{ i.get('id') }}
+            </div>
+            <div class="col-2">
+                {{ i.get('scientific_name') }}
+            </div>
+            <div class="col-2">
+                {{ i.get('botanical_family') }}
+            </div>
+            <div class="col-2">
+                {{ i.get('ecological_class') }}
+            </div>            
+            <div class="col-2">
+                {{ i.get('height_max') }}
+            </div>
+            <div class="col-2">
+                {% for item in i.get('popular_name'): %}
+                    {{ item + ';' }}
+                {% endfor %}
+            </div>
+            <div class="col-1">
+                <a class="btn btn-sm btn-success" href="#">
+                    <i class="bi bi-pencil-square"></i>
+                </a>
+                <a class="btn btn-sm btn-success" href="#">
+                    <i class="bi bi-trash3"></i>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+        <p class="p-2 fs-6 fst-italic text-end">Consulta realizada em {{ result.timestamp.strftime("%d/%m/%Y %H:%M") }}
+        </p>
+    </div>
+    {% endif %}
+    <div class="d-flex justify-content-md-end p-2" role="voltar">
+        <a class="btn btn-success" type="submit" href="/">Voltar</a>
+    </div>
+</div>
+{% endblock %}

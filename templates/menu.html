@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container w-75">
+  <div class="d-flex flex-column align-items-center">
+    <div class="p-3">
+      <h3>{{ data.Authors.about }}</h3>
+      <h6>{{ data.Authors.institution }}</h6>
+      <p>Alunos: {{ data.Authors.name[0] }} e {{ data.Authors.name[1] }} </p>
+    </div>
+    <div class="list-group p-2 w-75">
+      {% for i in data.apiDescription.endpoints %}
+        <a href="{{ i.Route }}" class="list-group-item list-group-item-action list-group-item-light " 
+        aria-current="true" data-bs-toggle="tooltip" data-bs-placement="right" title="{{ i.description }}">
+          <h5 class="mb-1">{{ i.title }}</h5>
+          <small>{{ i.Route }}</small>
+        </a>
+      {% endfor %}
+    </div>
+  </div>    
+</div>
+{% endblock %}
