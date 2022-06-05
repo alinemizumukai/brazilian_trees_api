@@ -57,16 +57,16 @@ def getMaker( data ):
 @routeTrees.route('/id/<data>' )
 def trees_id(data): 
     data = request.args.get('data')
+    erro = True if data is not None else False
     result = getMaker( { "id": data } )
-    exibir = True if data is not None else False
-    return render_template("grid.html", result=result, exibir=exibir)
+    return render_template("grid.html", result=result, erro=erro)
 
 @routeTrees.route('/scientific_name/<data>' )
 def trees_sci_name(data): 
     data = request.args.get('data')
+    erro = True if data is not None else False
     result = getMaker( { "scientific_name": data } )
-    exibir = True if data is not None else False
-    return render_template("grid.html", result=result, exibir=exibir)
+    return render_template("grid.html", result=result, erro=erro)
     
 @routeTrees.route('/popular_name/<data>' )
 def trees_pop_name(data): 
@@ -75,13 +75,13 @@ def trees_pop_name(data):
 @routeTrees.route('/ecological_class/<data>' )
 def trees_eco_class(data):   
     data = request.args.get('data')
+    erro = True if data is not None else False
     result = getMaker( { "ecological_class": data } )
-    exibir = True if data is not None else False
-    return render_template("grid.html", result=result, exibir=exibir)
+    return render_template("grid.html", result=result, erro=erro)
 
 @routeTrees.route('/botanical_family/<data>' )
 def trees_botanical_family(data):   
     data = request.args.get('data')
+    erro = True if data is not None else False
     result = getMaker( { "botanical_family": data } )
-    exibir = True if data is not None else False
-    return render_template("grid.html", result=result, exibir=exibir)
+    return render_template("grid.html", result=result, erro=erro)

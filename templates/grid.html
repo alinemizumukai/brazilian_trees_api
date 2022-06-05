@@ -10,7 +10,7 @@
         </div>
     </form>
     <hr class="bd-success mt-3 mb-4">
-    {% if exibir %}
+    {% if result.data[0] %}
     <div class="grid">
         <div class="row p-2 bg-success text-white fw-semibold">
             <div class="col-1">Cód.</div>
@@ -56,6 +56,10 @@
         <p class="p-2 fs-6 fst-italic text-end">Consulta realizada em {{ result.timestamp.strftime("%d/%m/%Y %H:%M") }}
         </p>
     </div>
+    {% endif %}
+    {% if erro and not result.data[0] %}
+    <p class="p-2 fs-6 fst-italic text-start">Item não encontrado.
+    </p>
     {% endif %}
     <div class="d-flex justify-content-md-end p-2" role="voltar">
         <a class="btn btn-success" type="submit" href="/">Voltar</a>
