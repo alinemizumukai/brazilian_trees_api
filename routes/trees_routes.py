@@ -85,3 +85,15 @@ def trees_botanical_family(data):
     erro = True if data is not None else False
     result = getMaker( { "botanical_family": data } )
     return render_template("grid.html", result=result, erro=erro)
+
+@routeTrees.route('/edit_tree/<data>')
+def trees_edit_tree(data):
+    result = getMaker( { "id": data } )   
+    return render_template('form.html', result=result, title='Atualizar')
+
+@routeTrees.route('/delete_tree/<data>')
+def trees_delete_tree(data):
+   # pendente funcao
+    message ='A árvore foi deletada com sucesso.'
+    return render_template('message.html', message=message)
+
