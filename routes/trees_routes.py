@@ -54,37 +54,41 @@ def getMaker( data ):
     #result["data"].append(treeList)
     return result
 
-@routeTrees.route('/id/<data>' )
-def trees_id(data): 
+@routeTrees.route('/id' )
+def trees_id(): 
+    busca = "id"
     data = request.args.get('data')
     erro = True if data is not None else False
     result = getMaker( { "id": data } )
-    return render_template("grid.html", result=result, erro=erro)
+    return render_template("grid.html", result=result, erro=erro, busca=busca)
 
-@routeTrees.route('/scientific_name/<data>' )
-def trees_sci_name(data): 
+@routeTrees.route('/scientific_name' )
+def trees_sci_name(): 
+    busca = "sci_name"
     data = request.args.get('data')
     erro = True if data is not None else False
     result = getMaker( { "scientific_name": data } )
-    return render_template("grid.html", result=result, erro=erro)
+    return render_template("grid.html", result=result, erro=erro, busca=busca)
     
 @routeTrees.route('/popular_name/<data>' )
 def trees_pop_name(data): 
     return 'TODO'
 
-@routeTrees.route('/ecological_class/<data>' )
-def trees_eco_class(data):   
+@routeTrees.route('/ecological_class' )
+def trees_eco_class():   
+    busca = "eco_class"
     data = request.args.get('data')
     erro = True if data is not None else False
     result = getMaker( { "ecological_class": data } )
-    return render_template("grid.html", result=result, erro=erro)
+    return render_template("grid.html", result=result, erro=erro, busca=busca)
 
-@routeTrees.route('/botanical_family/<data>' )
-def trees_botanical_family(data):   
+@routeTrees.route('/botanical_family' )
+def trees_botanical_family():   
+    busca = "botanical_family"
     data = request.args.get('data')
     erro = True if data is not None else False
     result = getMaker( { "botanical_family": data } )
-    return render_template("grid.html", result=result, erro=erro)
+    return render_template("grid.html", result=result, erro=erro, busca=busca)
 
 @routeTrees.route('/edit_tree/<data>')
 def trees_edit_tree(data):

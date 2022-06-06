@@ -21,25 +21,25 @@ def greetings():
                         "title": "Página Inicial"
                     },
                     {  
-                        "Route":"/trees/id/<int>",
+                        "Route":"/trees/id",
                         "methods":["GET", "PUT"],
                         "description":"Retorna/atualiza os dados da arvore com o <int> enviado",
                         "title": "Busca por código"
                     },
                     {  
-                        "Route":"/trees/scientific_name/<string>",
+                        "Route":"/trees/scientific_name",
                         "methods":["GET"],
                         "description":"Retorna os dados da arvore com o nome cientifico <string> enviado",
                         "title": "Busca por nome científico"
                     },
                     {  
-                        "Route":"/trees/botanical_family/<string>",
+                        "Route":"/trees/botanical_family",
                         "methods":["GET"],
                         "description":"Retorna os dados das arvores da familia <string> enviada",
                         "title": "Busca por família"
                     },
                     {  
-                        "Route":"/trees/ecological_class/<string>",
+                        "Route":"/trees/ecological_class",
                         "methods":["GET"],
                         "description":"Retorna os dados das arvores da classe ecologica <string> enviada",
                         "title": "Busca por classe ecológica"

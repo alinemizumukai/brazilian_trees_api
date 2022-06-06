@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container p-3">
-    <form class="row g-3 p-2" action="" method="PUT">
+    <form class="row g-3 p-2" action="{{ url_for('back_routes.trees.trees_' + busca ) }}" method="GET">
         <div class="col-auto">            
-            <input type="text" class="form-control" name="data">
+            <input type="text" class="form-control" name="data" placeholder="{{ busca }}">
         </div>
         <div class="col-auto">
             <button class="btn btn-success" type="submit">Buscar</button>
