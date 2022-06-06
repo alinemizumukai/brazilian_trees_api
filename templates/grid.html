@@ -44,7 +44,7 @@
                 {% endfor %}
             </div>
             <div class="col-1">
-                <a class="btn btn-sm btn-success" href="{{ url_for( 'back_routes.trees.trees_edit_tree', data=i.get('id') ) }}">
+                <a class="btn btn-sm btn-success" href="{{ url_for( 'back_routes.trees.trees_register_tree', data=i.get('id') ) }}">
                     <i class="bi bi-pencil-square"></i>
                 </a>
                 <a class="btn btn-sm btn-success" href="{{ url_for( 'back_routes.trees.trees_delete_tree', data=i.get('id') ) }}">

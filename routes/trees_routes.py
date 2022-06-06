@@ -90,10 +90,14 @@ def trees_botanical_family():
     result = getMaker( { "botanical_family": data } )
     return render_template("grid.html", result=result, erro=erro, busca=busca)
 
-@routeTrees.route('/edit_tree/<data>')
-def trees_edit_tree(data):
-    result = getMaker( { "id": data } )   
-    return render_template('form.html', result=result, title='Atualizar')
+@routeTrees.route('/register_tree/<data>')
+def trees_register_tree(data):
+    result = getMaker( { "id": data } )
+    if not result['data'][0]:
+        return render_template('form.html', result=None, title='Cadastrar')      
+    else:         
+        return render_template('form.html', result=result, title='Atualizar')
+        
 
 @routeTrees.route('/delete_tree/<data>')
 def trees_delete_tree(data):
