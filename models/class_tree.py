@@ -11,7 +11,7 @@ class Tree:
         self.height_max       = data[ "height_max" ]       if ( "height_max"       in data ) else None 
         self.ecological_class = data[ "ecological_class" ] if ( "ecological_class" in data ) else None 
         self.botanical_family = data[ "botanical_family" ] if ( "botanical_family" in data ) else None   
-        self.popular_name     = data[ "popular_name" ]     if ( "popular_name"     in data ) else []    
+        self.popular_name     = data[ "popular_name" ]     if ( "popular_name"     in data ) else None   
  
     def get( self ):
         result={
@@ -39,3 +39,16 @@ class Tree:
     def put( self ):
         if( self.id == None ): raise ValueError( "id" )    
         return self.id   
+    
+    def toJson( self ):
+        if( self.id ):
+            return {
+                "id" : self.id,
+                "scientific_name" : self.scientific_name,
+                "height_max"      : self.height_max,
+                "ecological_class": self.ecological_class,
+                "botanical_family": self.botanical_family,
+                "popular_name"    : self.popular_name
+            }
+        else:
+            return {}
