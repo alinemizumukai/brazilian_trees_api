@@ -106,26 +106,19 @@ def trees_register_tree(data):
     else:         
         return render_template('form.html', result=result, title='Atualizar')
 
-@routeTrees.route('/save_tree', methods = ['GET'])
+@routeTrees.route('/save_tree', methods = ['POST'])
 def trees_save_tree():
-   data=request.form
-   #result = Tree( data )
-   #return jsonify( id = result.post() )
-   data = {
-        "id": 2, #só para update
-        "scientific_name" : "self.scientific_name",
-        "height_max"      : 1,
-        "ecological_class": "self.ecological_class",
-        "botanical_family": "X3",
-        "popular_name"    : "self.popular_name"     
-   }
-   #result = Tree( data ).create()          # {"result":id da arvore}
-   result = Tree( data ).update()          # {"result":'A árvore foi atualizada com sucesso.'} ou {"erro":"msg erro"}
-   return  make_response(jsonify( result ))
+    data=request.form
+    if data['id'] == '0':
+        result = Tree( data ).create()          # {"result":id da arvore}
+        return  render_template('message.html', message=f"A árvore foi criada com sucesso. Id = {result['result']}.")
+    else:
+        result = Tree( data ).update()          # {"result":'A árvore foi atualizada com sucesso.'} ou {"erro":"msg erro"}
+        return  render_template('message.html', message=result['result'])
 
 @routeTrees.route('/delete_tree/<data>')
 @login_required
 def trees_delete_tree(data):
     result = Tree( { "id": data } ).delete()    # {"result":'A árvore foi excluida com sucesso.'} ou {"erro":"msg erro"}
-    return render_template('message.html', message=result)
+    return render_template('message.html', message=result['result'])
 
