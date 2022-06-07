@@ -120,14 +120,12 @@ def trees_save_tree():
         "popular_name"    : "self.popular_name"     
    }
    #result = Tree( data ).create()          # {"result":id da arvore}
-   #result = Tree( data ).update()          # {"result":'A árvore foi atualizada com sucesso.'} ou {"erro":"msg erro"}
-   result = Tree( { "id": 3 } ).delete()    # {"result":'A árvore foi excluida com sucesso.'} ou {"erro":"msg erro"}
+   result = Tree( data ).update()          # {"result":'A árvore foi atualizada com sucesso.'} ou {"erro":"msg erro"}
    return  make_response(jsonify( result ))
 
 @routeTrees.route('/delete_tree/<data>')
 @login_required
 def trees_delete_tree(data):
-   # pendente funcao
-    message ='A árvore foi deletada com sucesso.'
-    return render_template('message.html', message=message)
+    result = Tree( { "id": data } ).delete()    # {"result":'A árvore foi excluida com sucesso.'} ou {"erro":"msg erro"}
+    return render_template('message.html', message=result)
 
