@@ -45,6 +45,12 @@ def greetings():
                         "methods":["GET"],
                         "description":"Retorna os dados das arvores da classe ecologica <string> enviada",
                         "title": "Busca por classe ecológica"
+                    },
+                    {  
+                        "Route":"/trees/register_tree/0",
+                        "methods":["POST"],
+                        "description":"Cadastra uma nova árvore",
+                        "title": "Cadastrar árvore"
                     }
                 ]
             

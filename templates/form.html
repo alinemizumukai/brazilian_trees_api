@@ -5,27 +5,52 @@
         <div class="mb-5">
             <h1 class="display-6">{{ title }} árvore</h1>
         </div>
+        <div>
+            {% if result['data'] %}
+            <input type="text" class="form-control" id="formInput0" value="{{ result['data'][0][0].get('id') }}" hidden>
+            {% endif %}
+        </div>
         <div class="mb-3">
             <label for="formInput1" class="form-label">Nome Científico</label>
+            {% if result['data'] %}
             <input type="text" class="form-control" id="formInput1" value="{{ result['data'][0][0].get('scientific_name') }}">
+            {% else %}
+            <input type="text" class="form-control" id="formInput1">
+            {% endif %}
         </div>
         <div class="mb-3">
             <label for="formInput2" class="form-label">Família</label>
+            {% if result['data'] %}
             <input type="text" class="form-control" id="formInput2" value="{{ result['data'][0][0].get('botanical_family') }}">
+            {% else %}
+            <input type="text" class="form-control" id="formInput2">
+            {% endif %}
         </div>
         <div class="mb-3">
             <label for="formInput3" class="form-label">Classe</label>
+            {% if result['data'] %}
             <input type="text" class="form-control" id="formInput3" value="{{ result['data'][0][0].get('ecological_class') }}">
+            {% else %}
+            <input type="text" class="form-control" id="formInput3">
+            {% endif %}
         </div>
         <div class="mb-3">
             <label for="formInput4" class="form-label">Altura Máxima</label>
+            {% if result['data'] %}
             <input type="number" min="0" class="form-control" id="formInput4" value="{{ result['data'][0][0].get('height_max') }}">
+            {% else %}
+            <input type="text" class="form-control" id="formInput4">
+            {% endif %}
         </div>
         <div class="mb-3">
             <label for="formInput5" class="form-label">Nome Popular</label>
+            {% if result['data'] %}
             {% for item in result['data'][0][0].get('popular_name'): %}
             <input type="text" class="form-control" id="formInput5" value="{{ item }}">
-            {% endfor %}            
+            {% endfor %}  
+            {% else %}
+            <input type="text" class="form-control" id="formInput5">    
+            {% endif %}                  
         </div>
         <div class="d-flex justify-content-md-evenly p-2">
             <a class="btn btn-success" type="submit" href="/">Voltar</a>
