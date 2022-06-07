@@ -5,6 +5,12 @@
 --	* Classe Ecologica
 --	* Familia Botanica
 
+create table login(
+	user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+	email text not null,
+	password text not null
+);
+
 CREATE TABLE tb_ecological_class(
 	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	ecological_class TEXT
