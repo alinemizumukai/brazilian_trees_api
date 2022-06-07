@@ -1,8 +1,10 @@
 from flask import Blueprint, jsonify, make_response, render_template
+from flask_login import login_required
 
 Greetings = Blueprint('greetings', __name__,)
 
 @Greetings.route('/')
+@login_required
 def greetings():
     data =  {   
             "Authors":{

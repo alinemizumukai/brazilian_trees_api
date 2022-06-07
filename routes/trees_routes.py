@@ -2,6 +2,7 @@ from ctypes import sizeof
 import dataclasses
 from datetime import datetime
 from flask import Blueprint, jsonify, make_response, request, json, render_template
+from flask_login import login_required
 from itsdangerous import json
 from models.class_tree import Tree
 from modules.trees_query import getTreesBy
@@ -10,6 +11,7 @@ from modules.commons import error404
 routeTrees = Blueprint('trees', __name__,)
 
 @routeTrees.route( '/', methods = [ 'GET', 'POST', 'PUT' ] )
+@login_required
 def trees_root():
     if( request.method == 'GET' ):
         data = {}
@@ -51,10 +53,11 @@ def getMaker( data ):
     
     if( len( result["data"] ) == 0 ):
         return error404( data )
-    #result["data"].append(treeList)
+
     return result
 
 @routeTrees.route('/id' )
+@login_required
 def trees_id(): 
     busca = "id"
     data = request.args.get('data')
@@ -63,6 +66,7 @@ def trees_id():
     return render_template("grid.html", result=result, erro=erro, busca=busca)
 
 @routeTrees.route('/scientific_name' )
+@login_required
 def trees_sci_name(): 
     busca = "sci_name"
     data = request.args.get('data')
@@ -71,10 +75,12 @@ def trees_sci_name():
     return render_template("grid.html", result=result, erro=erro, busca=busca)
     
 @routeTrees.route('/popular_name/<data>' )
+@login_required
 def trees_pop_name(data): 
     return 'TODO'
 
 @routeTrees.route('/ecological_class' )
+@login_required
 def trees_eco_class():   
     busca = "eco_class"
     data = request.args.get('data')
@@ -83,6 +89,7 @@ def trees_eco_class():
     return render_template("grid.html", result=result, erro=erro, busca=busca)
 
 @routeTrees.route('/botanical_family' )
+@login_required
 def trees_botanical_family():   
     busca = "botanical_family"
     data = request.args.get('data')
@@ -91,6 +98,7 @@ def trees_botanical_family():
     return render_template("grid.html", result=result, erro=erro, busca=busca)
 
 @routeTrees.route('/register_tree/<data>')
+@login_required
 def trees_register_tree(data):
     result = getMaker( { "id": data } )
     if not result['data'][0]:
@@ -106,6 +114,7 @@ def trees_save_tree():
    return  make_response(jsonify(data))
 
 @routeTrees.route('/delete_tree/<data>')
+@login_required
 def trees_delete_tree(data):
    # pendente funcao
     message ='A árvore foi deletada com sucesso.'
