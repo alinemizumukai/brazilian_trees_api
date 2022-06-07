@@ -1,60 +1,63 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="d-flex justify-content-center">
-    <form class="w-25 m-5 pb-3">
+    <form class="w-25 m-5 pb-3" action="{{ url_for('back_routes.trees.trees_save_tree') }}" method="POST">
         <div class="mb-5">
             <h1 class="display-6">{{ title }} árvore</h1>
         </div>
-        <div>
+        <div >
+            <label for="id" class="form-label"></label>
             {% if result['data'] %}
-            <input type="text" class="form-control" id="formInput0" value="{{ result['data'][0][0].get('id') }}" hidden>
-            {% endif %}
-        </div>
-        <div class="mb-3">
-            <label for="formInput1" class="form-label">Nome Científico</label>
-            {% if result['data'] %}
-            <input type="text" class="form-control" id="formInput1" value="{{ result['data'][0][0].get('scientific_name') }}">
+            <input type="text" class="form-control" name="id" value="{{ result['data'][0][0].get('id')|string }}" hidden>
             {% else %}
-            <input type="text" class="form-control" id="formInput1">
+            <input type="text" class="form-control" name="id" value="0" hidden>
             {% endif %}
         </div>
         <div class="mb-3">
-            <label for="formInput2" class="form-label">Família</label>
+            <label for="scientific_name" class="form-label">Nome Científico</label>
             {% if result['data'] %}
-            <input type="text" class="form-control" id="formInput2" value="{{ result['data'][0][0].get('botanical_family') }}">
+            <input type="text" class="form-control" name="scientific_name" value="{{ result['data'][0][0].get('scientific_name') }}">
             {% else %}
-            <input type="text" class="form-control" id="formInput2">
+            <input type="text" class="form-control" name="scientific_name">
             {% endif %}
         </div>
         <div class="mb-3">
-            <label for="formInput3" class="form-label">Classe</label>
+            <label for="botanical_family" class="form-label">Família</label>
             {% if result['data'] %}
-            <input type="text" class="form-control" id="formInput3" value="{{ result['data'][0][0].get('ecological_class') }}">
+            <input type="text" class="form-control" name="botanical_family" value="{{ result['data'][0][0].get('botanical_family') }}">
             {% else %}
-            <input type="text" class="form-control" id="formInput3">
+            <input type="text" class="form-control" name="botanical_family">
             {% endif %}
         </div>
         <div class="mb-3">
-            <label for="formInput4" class="form-label">Altura Máxima</label>
+            <label for="ecological_class" class="form-label">Classe</label>
             {% if result['data'] %}
-            <input type="number" min="0" class="form-control" id="formInput4" value="{{ result['data'][0][0].get('height_max') }}">
+            <input type="text" class="form-control" name="ecological_class" value="{{ result['data'][0][0].get('ecological_class') }}">
             {% else %}
-            <input type="text" class="form-control" id="formInput4">
+            <input type="text" class="form-control" name="ecological_class">
             {% endif %}
         </div>
         <div class="mb-3">
-            <label for="formInput5" class="form-label">Nome Popular</label>
+            <label for="height_max" class="form-label">Altura Máxima</label>
+            {% if result['data'] %}
+            <input type="number" min="0" class="form-control" name="height_max" value="{{ result['data'][0][0].get('height_max') }}">
+            {% else %}
+            <input type="text" class="form-control" name="height_max">
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            <label for="popular_name" class="form-label">Nome Popular</label>
             {% if result['data'] %}
             {% for item in result['data'][0][0].get('popular_name'): %}
-            <input type="text" class="form-control" id="formInput5" value="{{ item }}">
+            <input type="text" class="form-control" name="popular_name" value="{{ item }}">
             {% endfor %}  
             {% else %}
-            <input type="text" class="form-control" id="formInput5">    
+            <input type="text" class="form-control" name="popular_name">    
             {% endif %}                  
         </div>
         <div class="d-flex justify-content-md-evenly p-2">
             <a class="btn btn-success" type="submit" href="/">Voltar</a>
-            <a class="btn btn-success" type="submit" href="#">Salvar</a>
+            <button class="btn btn-success" type="submit" >Salvar</button>
         </div>
     </form>
 </div>

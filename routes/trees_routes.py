@@ -105,7 +105,13 @@ def trees_register_tree(data):
         return render_template('form.html', result=None, title='Cadastrar')      
     else:         
         return render_template('form.html', result=result, title='Atualizar')
-        
+
+@routeTrees.route('/save_tree', methods = ['POST'])
+def trees_save_tree():
+   data=request.form
+   result = Tree( data )
+   #return jsonify( id = result.post() )
+   return  make_response(jsonify(data))
 
 @routeTrees.route('/delete_tree/<data>')
 @login_required
