@@ -21,15 +21,7 @@ class Tree:
             "ecological_class": self.ecological_class,
             "botanical_family": self.botanical_family,
             "popular_name"    : self.popular_name       
-        }
-        if( self.id != None ):
-            conn = get_db_connection()
-            query = "SELECT popular_name FROM tb_popular_names WHERE tree = %s" % self.id
-    
-            for name in conn.execute( query ).fetchall():
-                result["popular_name"].append( name["popular_name"] )
-    
-            conn.close()   
+        }  
         return result
     
     def create( self ):

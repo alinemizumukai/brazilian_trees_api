@@ -48,9 +48,7 @@
         <div class="mb-3">
             <label for="popular_name" class="form-label">Nome Popular</label>
             {% if result['data'] %}
-            {% for item in result['data'][0][0].get('popular_name'): %}
-            <input type="text" class="form-control" name="popular_name" value="{{ item }}">
-            {% endfor %}  
+            <input type="text" class="form-control" name="popular_name" value="{{ result['data'][0][0].get('popular_name') }}">
             {% else %}
             <input type="text" class="form-control" name="popular_name">    
             {% endif %}                  

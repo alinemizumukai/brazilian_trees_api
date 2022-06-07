@@ -29,7 +29,8 @@ def getTreesBy( data ):
     if( flag == True ) : query += " %s" % where
     trees = conn.execute( query ).fetchall()
     for tree in trees:
-        result.append( Tree( dict( tree ) ) )
+        obj = Tree( dict( tree ) )
+        result.append( obj.get() )
     conn.close()
     
     return result

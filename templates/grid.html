@@ -39,9 +39,7 @@
                 {{ i.get('height_max') }}
             </div>
             <div class="col-2">
-                {% for item in i.get('popular_name'): %}
-                    {{ item + ';' }}
-                {% endfor %}
+                {{ i.get('popular_name') }}
             </div>
             <div class="col-1">
                 <a class="btn btn-sm btn-success" href="{{ url_for( 'back_routes.trees.trees_register_tree', data=i.get('id') ) }}">
