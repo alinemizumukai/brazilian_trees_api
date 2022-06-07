@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 from genericpath import exists
 from modules.db import create_db, get_db_connection
 from routes.routes import Api
@@ -49,7 +49,7 @@ def login():
         login_user(Us, remember=form.remember.data)
         Umail = list({form.email.data})[0].split('@')[0]
         flash('Logged in successfully '+Umail)
-        redirect(url_for(menuPath))
+        return redirect(url_for(menuPath))
      else:
         flash('Login Unsuccessfull.')
   return render_template('login.html',title='Login', form=form)
