@@ -122,3 +122,6 @@ def trees_delete_tree(data):
     result = Tree( { "id": data } ).delete()    # {"result":'A árvore foi excluida com sucesso.'} ou {"erro":"msg erro"}
     return render_template('message.html', message=result['result'])
 
+@routeTrees.route('/<string:nome>')
+def error(nome):
+   return render_template('error.html')

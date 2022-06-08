@@ -54,6 +54,10 @@ def login():
         flash('Login Unsuccessfull.')
   return render_template('login.html',title='Login', form=form)
 
+@app.route('/<string:nome>')
+def error(nome):
+   return render_template('error.html')
+
 app.register_blueprint(Api, url_prefix='/')
 
 if( not exists( "database.db" ) ):

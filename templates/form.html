@@ -2,7 +2,7 @@
 {% block content %}
 <div class="d-flex justify-content-center">
     <form class="w-25 m-5 pb-3" action="{{ url_for('back_routes.trees.trees_save_tree') }}" method="POST">
-        <div class="mb-5">
+        <div class="mb-3">
             <h1 class="display-6">{{ title }} árvore</h1>
         </div>
         <div >
@@ -16,41 +16,41 @@
         <div class="mb-3">
             <label for="scientific_name" class="form-label">Nome Científico</label>
             {% if result['data'] %}
-            <input type="text" class="form-control" name="scientific_name" value="{{ result['data'][0][0].get('scientific_name') }}">
+            <input type="text" class="form-control" name="scientific_name" value="{{ result['data'][0][0].get('scientific_name') }}" required>
             {% else %}
-            <input type="text" class="form-control" name="scientific_name">
+            <input type="text" class="form-control" name="scientific_name" required>
             {% endif %}
         </div>
         <div class="mb-3">
             <label for="botanical_family" class="form-label">Família</label>
             {% if result['data'] %}
-            <input type="text" class="form-control" name="botanical_family" value="{{ result['data'][0][0].get('botanical_family') }}">
+            <input type="text" class="form-control" name="botanical_family" value="{{ result['data'][0][0].get('botanical_family') }}" required>
             {% else %}
-            <input type="text" class="form-control" name="botanical_family">
+            <input type="text" class="form-control" name="botanical_family" required>
             {% endif %}
         </div>
         <div class="mb-3">
             <label for="ecological_class" class="form-label">Classe</label>
             {% if result['data'] %}
-            <input type="text" class="form-control" name="ecological_class" value="{{ result['data'][0][0].get('ecological_class') }}">
+            <input type="text" class="form-control" name="ecological_class" value="{{ result['data'][0][0].get('ecological_class') }}" required>
             {% else %}
-            <input type="text" class="form-control" name="ecological_class">
+            <input type="text" class="form-control" name="ecological_class" required>
             {% endif %}
         </div>
         <div class="mb-3">
             <label for="height_max" class="form-label">Altura Máxima</label>
             {% if result['data'] %}
-            <input type="number" min="0" class="form-control" name="height_max" value="{{ result['data'][0][0].get('height_max') }}">
+            <input type="number" min="0" class="form-control" name="height_max" value="{{ result['data'][0][0].get('height_max') }}"required>
             {% else %}
-            <input type="text" class="form-control" name="height_max">
+            <input type="text" class="form-control" name="height_max" required>
             {% endif %}
         </div>
         <div class="mb-3">
             <label for="popular_name" class="form-label">Nome Popular</label>
             {% if result['data'] %}
-            <input type="text" class="form-control" name="popular_name" value="{{ result['data'][0][0].get('popular_name') }}">
+            <input type="text" class="form-control" name="popular_name" value="{{ result['data'][0][0].get('popular_name') }}" required>
             {% else %}
-            <input type="text" class="form-control" name="popular_name">    
+            <input type="text" class="form-control" name="popular_name" required>    
             {% endif %}                  
         </div>
         <div class="d-flex justify-content-md-evenly p-2">

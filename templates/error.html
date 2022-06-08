@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class=" d-flex justify-content-center row m-5">
+        <div class="col-md-6">
+            <img src="https://images.pexels.com/photos/60013/desert-drought-dehydrated-clay-soil-60013.jpeg?cs=srgb&dl=pexels-pixabay-60013.jpg&fm=jpg" alt="Erro" width="550" height="375"> 
+        </div>
+        <div class="col-md-6">            
+            <div class="error-template">
+                <h1 class="mt-3 mb-5">Oops!</h1>
+                <h2 class="mb-3">404 Not Found</h2>
+                <div class="error-details mb-5">
+                    Desculpe, a página não foi encontrada!
+                </div>
+                <div class="error-actions mb-5">
+                    <a href="javascript:history.back()" class="btn btn-success"> Voltar </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
