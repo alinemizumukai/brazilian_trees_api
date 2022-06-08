@@ -5,7 +5,7 @@
         <form class="m-5" method='POST' action="">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-                <h1 class="display-6">Entrar</h1>
+                <h1 class="display-6">Login</h1>
                 <div class="form-group mb-3">
                     {{ form.email.label(class="form-control-label m-2")}}
                     {% if form.email.errors %}
@@ -40,9 +40,9 @@
             <div class="form-group mb-3">
                 {{ form.submit(class="btn btn-success mt-2")}}
             </div>
-            <a href="javascript:void(0)" onclick="location.href='/reset'" class="link-dark">Esqueceu a senha?</a>
+            <a href="javascript:void(0)" onclick="location.href='/reset'" class="link-dark">Esqueci minha senha</a>
         </form>
-        <h6 class="mb-3">Crie uma conta <a href="javascript:void(0)" onclick="location.href='/register'" class="link-dark">Registre-se</a></h6>
+        <h6 class="mb-3">Não tem uma conta? <a href="{{ url_for('register') }}" onclick="location.href='/register'" class="link-dark">Registre-se</a></h6>
     </div>
 </div>
 {% endblock %}

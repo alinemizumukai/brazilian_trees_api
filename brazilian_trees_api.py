@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from email import message
 from genericpath import exists
 from modules.db import create_db, get_db_connection
 from routes.routes import Api
@@ -6,7 +7,7 @@ from flask import Flask, Blueprint
 from flask import render_template, url_for, flash, request, redirect, Response
 import sqlite3
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user
-from models.form import LoginForm
+from models.form import LoginForm, RegisterForm
 from models.User import User
 
 app = Flask(__name__)
@@ -52,7 +53,28 @@ def login():
         return redirect(url_for(menuPath))
      else:
         flash('Login Unsuccessfull.')
-  return render_template('login.html',title='Login', form=form)
+  return render_template('login.html', form=form)
+
+@app.route("/register", methods=['GET','POST'])
+def register():
+   form = RegisterForm()
+   conn = sqlite3.connect('database.db')
+   curs = conn.cursor()
+   if request.method=='POST':
+      email = request.form['email']
+      senha = request.form['password']
+      curs.execute(f"SELECT * FROM login where email = '{email}';")
+      data = curs.fetchone()
+      if data:
+         return render_template('message.html', message="Este e-mail já possui cadastro. Faça seu login.")
+      else:
+         if not data:
+            curs.execute("INSERT INTO login (email, password) VALUES (?,?)", (email,senha))
+            conn.commit()
+            conn.close()
+         return redirect(url_for('login'))
+   elif request.method=='GET':
+      return render_template('register.html', form=form)
 
 @app.route('/<string:nome>')
 def error(nome):
