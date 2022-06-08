@@ -53,7 +53,7 @@ def login():
         return redirect(url_for(menuPath))
      else:
         flash('Login Unsuccessfull.')
-  return render_template('login.html', form=form)
+  return render_template('login.html', form=form, omitirVoltar=True)
 
 @app.route("/register", methods=['GET','POST'])
 def register():
@@ -74,7 +74,7 @@ def register():
             conn.close()
          return redirect(url_for('login'))
    elif request.method=='GET':
-      return render_template('register.html', form=form)
+      return render_template('register.html', form=form, omitirVoltar=True)
 
 @app.route('/<string:nome>')
 def error(nome):

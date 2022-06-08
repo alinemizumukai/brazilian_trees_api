@@ -15,9 +15,11 @@
         <i class="bi bi-tree"></i>
         Brazilian Trees Api
       </a>
+      {% if not omitirVoltar: %}
       <form class="d-flex" role="logout" action="{{ url_for( 'logout' ) }}">
         <button class="btn btn-outline-light" type="submit">Sair</button>
       </form>
+      {% endif %}
     </div>
   </nav>
   {% block content %}
