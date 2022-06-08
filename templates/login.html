@@ -1,45 +1,48 @@
-
-{% extends "html_template.html" %}
-{% block info %}
- <form method='POST' action="">
-  {{ form.hidden_tag() }}
-  <fieldset class="form-group"> 
-   <h1>Log In</h1>
-   <div class="form-group">
-    {{ form.email.label(class="form-control-label")}}
-    {% if form.email.errors %}
-     {{ form.email(class="form-control form-control-lg is-invalid") }}
-     <div class="invalid-feedback">
-      {% for error in form.email.errors %}
-       <span>{{ error }}</span>
-      {% endfor %}
-     </div>
-    {% else %}  
-     {{ form.email(class="form-control form-control-lg")}}
-    {% endif %}
-   </div>
-   <div class="form-group">
-    {{ form.password.label(class="form-control-label")}}
-    {% if form.password.errors %}
-     {{ form.password(class="form-control form-control-lg is-invalid") }}
-     <div class="invalid-feedback">
-      {% for error in form.password.errors %}
-       <span>{{ error }}</span>
-      {% endfor %}
-     </div>
-    {% else %}
-     {{ form.password(class="form-control form-control-lg")}}
-    {% endif %}
-   </div>
-   <div class="form-group">
-    {{ form.remember(class="form-check-input") }} 
-    {{ form.remember.label(class="form-check-label") }}
-   </div>
-  </fieldset>
-  <div class="form-group">
-   {{ form.submit(class="btn btn-outline-info")}}
-  </div>
-  <a href="javascript:void(0)" onclick="location.href='/reset'">Forgot Password?</a>
- </form>
- <h6>Create an Account <a href="javascript:void(0)" onclick="location.href='/register'">Sign Up Now</a></h6>
-{% endblock info %}
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-center">
+    <div class="d-flex flex-column">
+        <form class="m-5" method='POST' action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <h1 class="display-6">Entrar</h1>
+                <div class="form-group mb-3">
+                    {{ form.email.label(class="form-control-label m-2")}}
+                    {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.email(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form.password.label(class="form-control-label m-2")}}
+                    {% if form.password.errors %}
+                    {{ form.password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.password(class="form-control form-control-lg")}}
+                    {% endif %}
+                </div>
+                <div class="form-group mb-3">
+                    {{ form.remember(class="form-check-input") }}
+                    {{ form.remember.label(class="form-check-label") }}
+                </div>
+            </fieldset>
+            <div class="form-group mb-3">
+                {{ form.submit(class="btn btn-success mt-2")}}
+            </div>
+            <a href="javascript:void(0)" onclick="location.href='/reset'" class="link-dark">Esqueceu a senha?</a>
+        </form>
+        <h6 class="mb-3">Crie uma conta <a href="javascript:void(0)" onclick="location.href='/register'" class="link-dark">Registre-se</a></h6>
+    </div>
+</div>
+{% endblock %}
