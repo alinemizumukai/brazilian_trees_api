@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class=" d-flex m-3">
+        <div class="justify-content-center m-2">
+            <img src="https://images.pexels.com/photos/1650669/pexels-photo-1650669.jpeg?cs=srgb&dl=pexels-thiago-japyassu-1650669.jpg&fm=jpg" alt="Exportar" width="581" height="434"> 
+        </div>
+        <div class="align-self-center m-2">            
+                <h3 class="mb-3">Deseja exportar todos os dados?</h3>
+                <div class="mb-5">
+                    <a href="{{ url_for( 'back_routes.importExport.export', option='1' ) }}" class="btn btn-success"> Sim </a>
+                    <a href="javascript:history.back()" class="btn btn-success"> Não </a>
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -10,9 +10,9 @@
     <div class="list-group p-2 w-75">
       {% for i in data.apiDescription.endpoints %}
         <a href="{{ i.Route }}" class="list-group-item list-group-item-action list-group-item-light " 
-        aria-current="true" data-bs-toggle="tooltip" data-bs-placement="right" title="{{ i.description }}">
+        aria-current="true" data-bs-toggle="tooltip" data-bs-placement="right" title="{{ i.Route }}">
           <h5 class="mb-1">{{ i.title }}</h5>
-          <small>{{ i.Route }}</small>
+          <small>{{ i.description }}</small>
         </a>
       {% endfor %}
     </div>

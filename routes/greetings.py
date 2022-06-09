@@ -17,33 +17,27 @@ def greetings():
                 "about":"Api desenvolvida com o objetivo de armazenar e acessar dados de especies arboreas nativas dos diferentes biomas do Brasil",
                 "endpoints":[
                     {  
-                        "Route":"/",
-                        "methods":["GET"],
-                        "description":"Retorna essa mensagem",
-                        "title": "Página Inicial"
-                    },
-                    {  
                         "Route":"/trees/id",
                         "methods":["GET", "PUT"],
-                        "description":"Retorna/atualiza os dados da arvore com o <int> enviado",
+                        "description":"Retorna/atualiza os dados da arvore com o código enviado",
                         "title": "Busca por código"
                     },
                     {  
                         "Route":"/trees/scientific_name",
                         "methods":["GET"],
-                        "description":"Retorna os dados da arvore com o nome cientifico <string> enviado",
+                        "description":"Retorna os dados da arvore com o nome cientifico enviado",
                         "title": "Busca por nome científico"
                     },
                     {  
                         "Route":"/trees/botanical_family",
                         "methods":["GET"],
-                        "description":"Retorna os dados das arvores da familia <string> enviada",
+                        "description":"Retorna os dados das arvores da familia enviada",
                         "title": "Busca por família"
                     },
                     {  
                         "Route":"/trees/ecological_class",
                         "methods":["GET"],
-                        "description":"Retorna os dados das arvores da classe ecologica <string> enviada",
+                        "description":"Retorna os dados das arvores da classe ecologica enviada",
                         "title": "Busca por classe ecológica"
                     },
                     {  
@@ -51,6 +45,18 @@ def greetings():
                         "methods":["POST"],
                         "description":"Cadastra uma nova árvore",
                         "title": "Cadastrar árvore"
+                    },
+                    {  
+                        "Route":"/trees/importar/0",
+                        "methods":["GET"],
+                        "description":"Permite importar árvores de um catálogo externo",
+                        "title": "Catálogo de árvores"
+                    },
+                    {  
+                        "Route":"/trees/exportar/0",
+                        "methods":["GET"],
+                        "description":"Exportar árvores cadastradas no formato zip",
+                        "title": "Exportar árvores cadastradas"
                     }
                 ]
             
