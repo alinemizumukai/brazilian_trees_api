@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from fileinput import filename
 from flask import Blueprint, jsonify, make_response, send_file
 from itsdangerous import json
@@ -16,4 +17,5 @@ def export():
 
 @importExport.route('/importar')
 def importar():
-    return make_response( jsonify( importTrees( "https://leafy-puppy-17562a.netlify.app/" ) ) )
+    trees = importTrees( "https://leafy-puppy-17562a.netlify.app/" )
+    return make_response( jsonify( trees ) )

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from typing import Dict, List
 from flask import json
 from markupsafe import string
@@ -11,7 +12,7 @@ class Tree:
         self.height_max       = data[ "height_max" ]       if ( "height_max"       in data ) else None 
         self.ecological_class = data[ "ecological_class" ] if ( "ecological_class" in data ) else None 
         self.botanical_family = data[ "botanical_family" ] if ( "botanical_family" in data ) else None   
-        self.popular_name     = data[ "popular_name" ]     if ( "popular_name"     in data ) else None   
+        self.popular_name     = data[ "popular_name" ] if ( "popular_name"     in data ) else None   
  
     def get( self ):
         result={

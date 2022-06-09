@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import send_file
 from markupsafe import string
 from modules.db import get_db_connection
@@ -41,8 +42,12 @@ def getTreesBy( data ):
     return result
 
 def importTrees( link ):
-    data = requests.get( link ).json()
-    return data
+    data = requests.get( link ).content
+    elements = json.loads( data )
+    result = []
+    for el in elements:
+        result.append( Tree( el ).create() )
+    return result
 
 def exportTrees():
     dataHora = datetime.datetime.now().strftime("%d_%b_%Y_%H_%M_%S")
@@ -50,5 +55,5 @@ def exportTrees():
     fileName = filePath + "/brazilian_trees_api_" + dataHora + ".zip"
     with zipfile.ZipFile( fileName, "x") as z:
         with z.open("brazilian_trees_api_export.json", "w") as c:
-            c.write(json.dumps(getTreesBy(""), indent=2).encode("utf-8"))
+            c.write(json.dumps(getTreesBy(""), indent=2))
     return send_file( fileName )
