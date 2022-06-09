@@ -78,7 +78,7 @@ def register():
 
 @app.route('/<string:nome>')
 def error(nome):
-   return render_template('error.html')
+   return render_template('error.html', omitirVoltar=True)
 
 app.register_blueprint(Api, url_prefix='/')
 

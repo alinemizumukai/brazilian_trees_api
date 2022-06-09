@@ -110,16 +110,3 @@ class Tree:
         cursor.execute( query )
         conn.commit()
         return {"result":'A árvore foi deletada com sucesso.'}
-    
-    def toJson( self ):
-        if( self.id ):
-            return {
-                "id" : self.id,
-                "scientific_name" : self.scientific_name,
-                "height_max"      : self.height_max,
-                "ecological_class": self.ecological_class,
-                "botanical_family": self.botanical_family,
-                "popular_name"    : self.popular_name
-            }
-        else:
-            return {}
