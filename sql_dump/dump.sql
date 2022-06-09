@@ -10,9 +10,9 @@ INSERT INTO tb_botanical_family VALUES( 3, "Lecythidaceae" );
 INSERT INTO tb_botanical_family VALUES( 4, "Meliaceae" );
 INSERT INTO tb_botanical_family VALUES( 5, "Bignoniaceae" );
 
-INSERT INTO tb_trees VALUES( 1, "Euterpe precatoria", "Açai da Mata", 20, 3, 1 );
+INSERT INTO tb_trees VALUES( 1, "Mouritia flexuosa", "Buriti", 25, 3, 1 );
 
-INSERT INTO tb_trees VALUES( 2, "Handroanthus heptaphyllus", "Ipe Roxo", 20, 2 , 5 );
+INSERT INTO tb_trees VALUES( 2, "Hymenaea courbaril", "Jatobá", 45, 3 , 2 );
 
 INSERT INTO tb_trees VALUES( 3, "Schizolobium amazonicum", "Paricá", 40, 1, 2 );
 
