@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container p-3">
+    <h1 class="display-5 mb-3 p-3">Catálogo de Árvores</h1>
+    <div class="grid">
+        <div class="row p-2 bg-success text-white fw-semibold">
+            <div class="col-1">Cód.</div>
+            <div class="col-2">Nome Científico</div>
+            <div class="col-2">Família</div>
+            <div class="col-2">Classe</div>            
+            <div class="col-2">Altura Máxima</div>
+            <div class="col-2">Nome Popular</div>
+        </div>
+        {% for i in result %}
+        <div class="row p-2 border-bottom border-success border-opacity-50">
+            <div class="col-1">
+                {{ i.get('id') }}
+            </div>
+            <div class="col-2">
+                {{ i.get('scientific_name') }}
+            </div>
+            <div class="col-2">
+                {{ i.get('botanical_family') }}
+            </div>
+            <div class="col-2">
+                {{ i.get('ecological_class') }}
+            </div>            
+            <div class="col-2">
+                {{ i.get('height_max') }}
+            </div>
+            <div class="col-2">
+                {{ i.get('popular_name') }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="d-flex justify-content-md-center p-2">
+        <div class="m-3">
+            <a class="btn btn-success" type="submit" href="/">Voltar</a>
+        </div>
+        <div class="m-3">
+            <a class="btn btn-success" type="submit" href="{{ url_for( 'back_routes.importExport.importar', option='1' ) }}">Importar dados</a>
+        </div>        
+    </div>
+</div>
+{% endblock %}
