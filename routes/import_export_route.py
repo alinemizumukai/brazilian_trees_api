@@ -17,7 +17,8 @@ def export(option):
     if option == '0':
         return render_template( "exportar.html")
     else:
-        return exportTrees()
+        exportTrees()
+        return render_template( "message.html", message="Exportação concluída!")
 
 @importExport.route('/importar/<option>')
 def importar(option):
@@ -28,4 +29,4 @@ def importar(option):
         return render_template( "grid_catalogo.html", result=elements ) 
     else:
         importTrees( link )
-        return render_template( "message.html", message="Importação realizada com sucesso!")
+        return render_template( "message.html", message="Importação concluída!")

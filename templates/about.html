@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card m-3"> 
+    <div class="position-absolute top-0 end-0">
+        <a type="button" class="btn-close" aria-label="Close" href="/"></a> 
+    </div>    
+    <img src="https://images.pexels.com/photos/338936/pexels-photo-338936.jpeg?cs=srgb&dl=pexels-nejc-ko%C5%A1ir-338936.jpg&fm=jpg" class="rounded mx-auto d-block mt-3" alt="about" width="665" height="386">
+    <div class="card-body">
+      <h4 class="card-title">Brazilian Trees Api</h4>
+      <p class="card-text">Api desenvolvida com o objetivo de armazenar e acessar dados de especies arboreas nativas dos diferentes biomas do Brasil.</p>
+      <p class="card-text">Trabalho avaliativo desenvolvido em Python com uso do framework Flask.</p>
+      <h5 class="card-title">Desenvolvedores</h5>
+      <div class="row justify-content-center m-3">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Aline Mizumukai</h6>
+              <p class="card-text">RA: 2840481923024</p>
+              <a href="https://github.com/alinemizumukai" class="btn btn-dark" target="_blank"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Caio Damasceno Pellicani</h6>
+              <p class="card-text">RA: 2840481923003</p>
+              <a href="https://github.com/CaioPellicani" class="btn btn-dark" target="_blank"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="card-text"><small class="text-muted">Tópicos Especiais em Informática - Fatec Ribeirão Preto</small></p>
+    </div>
+  </div>
+{% endblock %}

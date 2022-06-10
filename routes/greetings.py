@@ -57,9 +57,20 @@ def greetings():
                         "methods":["GET"],
                         "description":"Exportar árvores cadastradas no formato zip",
                         "title": "Exportar árvores cadastradas"
+                    },
+                    {  
+                        "Route":"/sobre",
+                        "methods":["GET"],
+                        "description":"Dados dos alunos",
+                        "title": "Sobre"
                     }
                 ]
             
             }
         }
     return render_template( "menu.html", data=data )
+
+@Greetings.route('/sobre')
+@login_required
+def sobre():
+    return render_template("about.html")
