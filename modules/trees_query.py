@@ -55,5 +55,5 @@ def exportTrees():
     fileName = filePath + "/brazilian_trees_api_" + dataHora + ".zip"
     with zipfile.ZipFile( fileName, "x") as z:
         with z.open("brazilian_trees_api_export.json", "w") as c:
-            c.write(json.dumps(getTreesBy(""), indent=2))
+            c.write(json.dumps(getTreesBy(""), indent=2).encode("utf-8"))
     return send_file( fileName )

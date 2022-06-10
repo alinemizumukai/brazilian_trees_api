@@ -17,8 +17,8 @@ def export(option):
     if option == '0':
         return render_template( "exportar.html")
     else:
-        exportTrees()
-        return render_template( "message.html", message="Exportação concluída!")
+        return exportTrees()
+        #return render_template( "message.html", message="Exportação concluída!")
 
 @importExport.route('/importar/<option>')
 def importar(option):
